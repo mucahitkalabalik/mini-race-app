@@ -52,8 +52,6 @@ export default {
   },
   watch: {
     "$store.state.cars.start"(newVal) {
-      console.log(newVal, "start");
-
       if (newVal) {
         this.startCarAnimation();
       }
