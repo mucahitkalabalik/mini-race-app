@@ -31,41 +31,28 @@ const race = {
       state.start = value;
     },
     programCreated(state, rootState) {
-      console.log(rootState, "rootState");
-
-      const raceProgram = [];
-
-      rootState.race.tours.forEach((tour, index) => {
-        const tourInfo = {
-          tourNumber: index + 1,
-          tourLength: tour.tourLength,
-          selectedCars: rootState.cars.selectedCars,
-        };
-
-        raceProgram.push(tourInfo);
+      state.program.push({
+        tourNumber: rootState.race.currentTour,
+        tourLength:
+          rootState.race.tours[rootState.race.currentTour - 1].tourLength,
+        selectedCars: rootState.cars.selectedCars,
       });
-      state.program = raceProgram;
     },
     addResult(state, rootState) {
-      // state.program'daki verinin derin kopyasını al
-      const selectedCars = JSON.parse(JSON.stringify(state.program[rootState.race.currentTour - 2]));
-    
+      
+      const selectedCars = JSON.parse(
+        JSON.stringify(state.program[rootState.race.currentTour - 2])
+      );
+
       if (selectedCars) {
-        // Speed değerine göre azalan sırayla sıralama
-        const sortedCars = selectedCars.selectedCars.sort((a, b) => b.speed - a.speed);
-    
-        // Sıralanmış arabaları işlemden geçirme
-        sortedCars.forEach((car) => {
-          console.log(`Car Name: ${car.name}, Speed: ${car.speed}`);
-          // İlgili işlemleri burada yapabilirsiniz
-        });
-    
-        // Sıralanmış diziyi results içine ekle
+        const sortedCars = selectedCars.selectedCars.sort(
+          (a, b) => b.speed - a.speed
+        );
+
         selectedCars.selectedCars = sortedCars;
         state.results.push(selectedCars);
       }
-    }
-    
+    },
   },
   actions: {
     selectRandomCars({ commit, rootState }) {
@@ -77,7 +64,7 @@ const race = {
     setProgram({ commit, rootState }) {
       commit("programCreated", rootState);
     },
-    setReults({ commit, rootState }) {
+    setResults({ commit, rootState }) {
       commit("addResult", rootState);
     },
   },
