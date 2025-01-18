@@ -10,7 +10,8 @@ const race = {
     ],
     currentTour: 1,
     raceStatus: "not started",
-    running:false
+    running:false,
+    nextButton: false,
   },
   mutations: {
     addCar(state, car) {
@@ -22,8 +23,11 @@ const race = {
     changeRaceStatus(state, status) {
       state.raceStatus = status;
     },
-    changeRunning(state, status) {
+    setRunning(state, status) {
       state.running = status;
+    },
+    setNextButton(state, status) {
+      state.nextButton = status;
     },
   },
   actions: {
@@ -34,7 +38,10 @@ const race = {
       commit("changeRaceStatus", status);
     },
     changeRunning({ commit }, status) {
-      commit("changeRunning", status);
+      commit("setRunning", status);
+    },
+    changeNextButton({ commit }, status) {
+      commit("setNextButton", status);
     },
   },
   getters: {
@@ -46,6 +53,9 @@ const race = {
     },
     raceStatus(state) {
       return state.raceStatus;
+    },
+    getNextButton(state) {
+      return state.nextButton;
     },
   },
 };
