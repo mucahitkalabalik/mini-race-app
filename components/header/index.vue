@@ -1,7 +1,7 @@
 <template>
   <div class="header">
-    <b-button class="header-button mr-3" @click="createRace">Create</b-button>
-    <b-button class="header-button mr-5" variant="success" @click="startRace">
+    <b-button :disabled="createButton" class="header-button mr-3" @click="createRace">Create</b-button>
+    <b-button :disabled="startButton"  class="header-button mr-5" variant="success" @click="startRace">
       Start
     </b-button>
   </div>
@@ -9,10 +9,17 @@
 
 <script>
 export default {
+  data() {
+    return {
+      createButton: false,
+      startButton: false,
+    };
+  },
   methods: {
     createRace() {
       this.$store.dispatch("cars/selectRandomCars");
       this.$store.dispatch("cars/setProgram");
+      this.createButton = true;
     },
     startRace() {
       this.$store.dispatch("cars/startRace",true);
@@ -26,6 +33,7 @@ export default {
         this.$store.dispatch("race/changeRaceStatus", "tourfinished");
         this.$store.dispatch("cars/startRace",false);
       }, raceDuration * 1000); 
+      this.startButton = true;
     },
   },
   computed: {
