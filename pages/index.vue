@@ -4,9 +4,9 @@
   <b-container fluid>
 
     <b-row>
-      <b-col cols="3"><CarList /></b-col>
-      <b-col cols="5"><Race /></b-col>
-      <b-col cols="4"><Program /></b-col>
+      <b-col cols="12" lg="3"><CarList /></b-col>
+      <b-col cols="12" lg="5"><Race /></b-col>
+      <b-col cols="12" lg="4"><Program /></b-col>
     </b-row>
     
   </b-container>
