@@ -12,7 +12,7 @@ export default {
   data() {
     return {
       createButton: false,
-      startButton: false,
+      startButton: true,
     };
   },
   methods: {
@@ -20,6 +20,7 @@ export default {
       this.$store.dispatch("cars/selectRandomCars");
       this.$store.dispatch("cars/setProgram");
       this.createButton = true;
+      this.startButton = false;
     },
     startRace() {
       this.$store.dispatch("cars/startRace",true);
