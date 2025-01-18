@@ -19,11 +19,13 @@ export default {
     results() {
       return this.$store.getters["cars/getResult"];
     },
+    tours() {
+      return this.$store.getters["race/getTours"];
+    },
   },
   watch: {
-    "$store.state.race.currentTour"(newVal) {
-      console.log(newVal, "newVal");
-      this.$store.dispatch("cars/setReults");
+    "$store.state.race.currentTour"() {
+      this.$store.dispatch("cars/setResults");
     },
   },
 };
