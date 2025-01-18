@@ -109,7 +109,7 @@ export default {
           this.tours[this.currentTour - 2].m / slowestCar.speed;
         setTimeout(() => {
           this.$store.dispatch("race/nextTour");
-        }, raceDuration * 1150);
+        }, raceDuration * 1230);
       }
     },
   },
