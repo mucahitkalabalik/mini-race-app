@@ -1,4 +1,4 @@
-# teamso-case
+# mini-race-app
 
 ## Build Setup
 
