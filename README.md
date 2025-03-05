@@ -1,4 +1,5 @@
 # mini-race-app
+https://mini-race-app.netlify.app/
 
 ## Build Setup
 
@@ -16,5 +17,3 @@ $ npm run start
 # generate static project
 $ npm run generate
 ```
-
-https://mini-race-app.netlify.app/
