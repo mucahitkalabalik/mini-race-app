@@ -4,7 +4,7 @@ export default {
   target: "static",
 
   head: {
-    title: "teamso-case",
+    title: "Mini Race",
     htmlAttrs: {
       lang: "en",
     },
