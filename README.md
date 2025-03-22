@@ -1,4 +1,3 @@
-# mini-race-app
 https://mini-race-app.netlify.app/
 # 🚗 Car Racing Game 🏁  
 
